@@ -37,10 +37,10 @@ def encrypt():
         screen1.geometry("400x250")
         screen1.configure(bg="#ffb3ba")
 
-        message = text1.get(1.0, END) 
-        encode_message = message.encode("ascii")
-        base64_bytes = base64.b64encode(encode_message)
-        encrypt = base64_bytes.decode("ascii")
+        message = text1.get(1.0, END) #This line extracts the text from a widget (likely a Text widget in Tkinter) starting from line 1, character 0, up to the end (END).
+        encode_message = message.encode("ascii") #Converts the message string into a byte-like object using ASCII encoding. This is necessary to prepare the data for encoding in base64 (as base64 works on byte data).
+        base64_bytes = base64.b64encode(encode_message) #This line encodes the encode_message (ASCII-encoded bytes) into a Base64 format. Base64 is a way to represent binary data in an ASCII string format. 
+        encrypt = base64_bytes.decode("ascii") #Converts the Base64 encoded bytes back into an ASCII string. This allows the encoded message to be used or displayed as a regular string.
 
         Label(screen1, text="Encrypted Message:", font=("Helvetica", 12, "bold"), fg="white", bg="#ffb3ba").place(x=10, y=10)
         text2 = Text(screen1, font="Helvetica 10", bg="white", relief=GROOVE, wrap=WORD, bd=0)
@@ -61,7 +61,7 @@ def main_screen():
     screen = Tk()
     screen.geometry("400x420")
     screen.configure(bg="#f0f0f0")
-    screen.title("Modern CrypDecrypApp")
+    screen.title("EncrypDecrypApp")
 
     # Adding a custom icon
     image_icon = PhotoImage(file="key.png")
